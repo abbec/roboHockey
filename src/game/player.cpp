@@ -24,10 +24,10 @@
  
 // Constructor
 Player::Player(std::string n, bool g, Skills s) : 
-gender(g), 
-name(n),
-skills(s),
-lock(0)
+	gender(g), 
+	name(n),
+	skills(s),
+	lock(0)
 {}
  
 // Move the player
@@ -49,9 +49,9 @@ void Player::makeMove()
 			srand(time(NULL));
 				
 			setVelocity(
-			Math::Vector2D<double>(
-			(rand()/double(RAND_MAX))*2-1, 
-			(rand()/double(RAND_MAX))*2-1 )*(0.05*skills.getSkating()));
+						Math::Vector2D<double>(
+											   (rand()/double(RAND_MAX))*2-1, 
+											   (rand()/double(RAND_MAX))*2-1 )*(0.05*skills.getSkating()));
 		}
 		else
 		{
@@ -75,7 +75,7 @@ void Player::shoot()
 	
 	Math::Vector2D<double> goalVector = 
 		Math::Vector2D<double>(g->getRinkCenterX(), team->getGoal()->getFrontY()) -
-		 position;
+		position;
 
 	srand(time(NULL));
 	double randX = (((rand()/double(RAND_MAX))*2)-1)/(0.05*skills.getShooting());
@@ -130,7 +130,7 @@ void Player::makeOffensiveMove()
 
 			
 			setVelocity((playerDistanceVector/playerDistanceVector.norm())*(0.025*skills.getSkating()) +
-			Math::Vector2D<double>( ((rand()/double(RAND_MAX))*2)-1, ((rand()/double(RAND_MAX))*2)-1 ));			            
+						Math::Vector2D<double>( ((rand()/double(RAND_MAX))*2)-1, ((rand()/double(RAND_MAX))*2)-1 ));			            
 			
 		}
 		else
@@ -181,7 +181,7 @@ void Player::makeDefensiveMove()
 		}
 		else
 		{
-				setVelocity(newVelocity);
+			setVelocity(newVelocity);
 		}
 	}
 }
